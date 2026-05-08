@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+         unordered_set<int>seen;
+         while(n!= 1){
+            if(seen.count(n))  // infinite loop
+              return false;
+            seen.insert(n);
+            int ans =0;
+            while(n!=0){
+                int digit = n%10;
+                ans += pow(digit,2);
+                n = n/10;
+            }
+            n =ans;
+         }
+         return true;
+    }
+};
